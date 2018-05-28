@@ -12,19 +12,21 @@ const codes = [
 ];
 
 let index = 0
+let progress = [...codes]
 
 function init() {
   document.body.addEventListener('keydown',function(e){
    
-    if (e.key === codes[index]){
-      index++
-      if (index === codes.length){
+    if (e.key === progress[0]){
+      progress.shift()
+      console.log(progress[0])
+      if (progress.length === 0){
         alert("Contra!");
-        index = 0
-      }
+        progress = [...codes]
+        }
     }
     else{
-      index = 0
+      progress = [...codes]
     }
     
   })
